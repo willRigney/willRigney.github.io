@@ -25,9 +25,13 @@ input {
 	width:300px;
 	text-align:center;
 }
+table {
+    text-align: center;
+    font-size:24px;
+}
     </style>
     <script src = "leaderboard.js">
-        function addPointss () {
+        function addPoints () {
             let time = alert("Enter amount of time spent traveling(just number): ");
             let timeUnits = alert("What unit of time was your previous response (hours, minutes, seconds....");
             let date = alert("Enter date when you traveled: ");
@@ -48,13 +52,13 @@ input {
             </div>
         </ul>
     </nav>
-    <button onClick = "addPoints()">Add Points!</button>
+    <button class = "points" onClick = "addPoints()">Add Points!</button>
     <table>
         <tr>
             <th>Time Spent</th>
             <th>Points Earned</th>
             <th>Date</th>
-            <rth>Total amount of Points</rth>
+            <th>Total amount of Points</rth>
           </tr>
           <tr>
             <td>20 min</td>
