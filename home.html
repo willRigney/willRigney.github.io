@@ -12,6 +12,25 @@
         div.instructions {
             text-align: center;
         }
+        h2{
+            text-align: center;
+        }
+        .points{
+            font-size: 20px;
+            padding: 24px 75px;
+            font-weight: bold;
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease 0s;
+            cursor: pointer;
+            border: none;
+            border-radius: 45px;
+        }
+        .points:hover {
+            background-color: #2EE59D;
+            box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+            color: #fff;
+            transform: translateY(-7px);
+        }
     </style>
     <script>
 
@@ -38,5 +57,6 @@
         <li>Earn points and compete against your friends for ultimate victory!</li>
     </ol>
     </div>
+    <button class = 'points' onclick="gameStart()">Enter Points!</button>
 </body>
 </html>
