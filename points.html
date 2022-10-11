@@ -23,5 +23,34 @@
             </div>
         </ul>
     </nav>
+    <div class="center">
+        {{^private}}
+            <!--Test input-->
+            <input type="text" id="name" placeholder='Enter name here (max. 10 characters)'>
+            
+            
+            <input type="password" id="password" placeholder='Enter password (if not guest)'>
+        {{/private}}
+        
+        {{#private}}
+            <h2>Welcome back! {{username}}</h2>
+        {{/private}}
+    </div>
+
+
+    <div class="middle">
+        {{^private}}
+            <button onclick='playAsGuest()'>Play As Guest</button>
+
+            <button onclick='createAccount()'>Create Account</button>
+
+            <button onclick='login()'>Log In</button>
+        {{/private}}
+        
+        {{#private}}
+            <button onclick='play()'>Play</button>
+            <button onclick='logout()'>Log Out</button>
+        {{/private}}
+    </div>
 </body>
 </html>
