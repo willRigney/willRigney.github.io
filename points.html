@@ -27,7 +27,12 @@ input {
 }
     </style>
     <script src = "leaderboard.js">
-
+        function addPointss () {
+            let time = alert("Enter amount of time spent traveling(just number): ");
+            let timeUnits = alert("What unit of time was your previous response (hours, minutes, seconds....");
+            let date = alert("Enter date when you traveled: ");
+            let type = alert("Enter what type of public transportation you took: ");
+        }
     </script>
 </head>
 
@@ -43,34 +48,26 @@ input {
             </div>
         </ul>
     </nav>
-    <div class="center">
-        {{^private}}
-            <!--Test input-->
-            <input type="text" id="name" placeholder='Enter name here (max. 10 characters)'>
-            
-            
-            <input type="password" id="password" placeholder='Enter password (if not guest)'>
-        {{/private}}
-        
-        {{#private}}
-            <h2>Welcome back! {{username}}</h2>
-        {{/private}}
-    </div>
-
-
-    <div class="middle">
-        {{^private}}
-            <button onclick='playAsGuest()'>Play As Guest</button>
-
-            <button onclick='createAccount()'>Create Account</button>
-
-            <button onclick='login()'>Log In</button>
-        {{/private}}
-        
-        {{#private}}
-            <button onclick='play()'>Play</button>
-            <button onclick='logout()'>Log Out</button>
-        {{/private}}
-    </div>
+    <button onClick = "addPoints()">Add Points!</button>
+    <table>
+        <tr>
+            <th>Time Spent</th>
+            <th>Points Earned</th>
+            <th>Date</th>
+            <rth>Total amount of Points</rth>
+          </tr>
+          <tr>
+            <td>20 min</td>
+            <td>100</td>
+            <td>10/11</td>
+            <td>100</td>
+          </tr>
+          <tr>
+            <td>10 min</td>
+            <td>50</td>
+            <td>10/10</td>
+            <td>150</td>
+          </tr>
+    </table>
 </body>
 </html>
