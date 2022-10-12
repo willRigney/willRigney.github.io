@@ -30,14 +30,14 @@ table {
     font-size:24px;
 }
     </style>
-    <script src = "leaderboard.js">
+    <script>
+        let time;
+        let numRide = 1;
         function addPoints () {
-            let time;
-            time = alert("Enter amount of time spent traveling(just number): ");
-            let timeUnits; 
-            timeUnits = alert("What unit of time was your previous response (hours, minutes, seconds....");
-            let date;
-            date = alert("Enter date when you traveled: ");
+            time = prompt("Enter amount of time spent traveling (In minutes)")
+            document.getElementById("ride"+numRide).innerHTML = time + " Minutes";
+            document.getElementById("point" + numRide).innerHTML = time*5 + " Points";
+            numRide++;
         }
     </script>
 </head>
@@ -59,20 +59,14 @@ table {
         <tr>
             <th>Time Spent</th>
             <th>Points Earned</th>
-            <th>Date</th>
-            <th>Total amount of Points</rth>
           </tr>
           <tr>
-            <td>20 min</td>
-            <td>100</td>
-            <td>10/11</td>
-            <td>100</td>
+            <td id = "ride1"></td>
+            <td id = "point1"></td>
           </tr>
           <tr>
-            <td>10 min</td>
-            <td>50</td>
-            <td>10/10</td>
-            <td>150</td>
+            <td id = "ride2"></td>
+            <td id = "point2"></td>
           </tr>
     </table>
 </body>
