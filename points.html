@@ -33,12 +33,20 @@ table {
     <script>
         let time;
         let numRide = 1;
+	let total = 0;
+	let points = 0;
         function addPoints () {
             time = prompt("Enter amount of time spent traveling (In minutes)")
             document.getElementById("ride"+numRide).innerHTML = time + " Minutes";
-            document.getElementById("point" + numRide).innerHTML = time*5 + " Points";
+            points = document.getElementById("point" + numRide).innerHTML = time*5 + " Points";
             numRide++;
+	    totalPoints();
         }
+	
+	function totalPoints(){
+	    totalPoints += points;
+	    document.getElementByID("totalPoints).innerHTML = "Total Points: " + total;
+	}
     </script>
 </head>
 
@@ -69,6 +77,7 @@ table {
             <td id = "point2"></td>
           </tr>
     </table>
+	<p id = "totalPoints"></p>
 	<div id="login-form-wrap" >
         <h2>Enter a Username</h2>
         <form id="login-form" >
