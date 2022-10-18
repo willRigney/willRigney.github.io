@@ -1,15 +1,140 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <link rel="stylesheet" href = "./navBar.css">
-    <link rel="stylesheet" href = "./leaderboard.css">
+    <link rel="stylesheet" href="./navBar.css">
     <title>Leaderboards</title>
     <style>
-        
-        
-    </style>
-    <script src="leaderboard.js">
+        .center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
 
+        .pointTable {
+            text-align: center;
+            font-size: 24px;
+            color: black;
+            border-collapse: collapse;
+
+        }
+
+        .pointa {
+            border: 2px solid black;
+        }
+
+        p {
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        #container {
+            width: 300px;
+            height: auto;
+            margin: auto;
+            background-color: teal;
+            color: rgb(25, 13, 40);
+            /* border: 1px solid black; */
+            border-collapse: collapse;
+            font-family: Arial;
+        }
+
+        .row {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 40px;
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+
+        .name {
+            position: relative;
+            display: inline-block;
+            width: 75%;
+            text-align: left;
+            line-height: 45px;
+            margin-left: 25px;
+            font-weight: bold;
+        }
+
+        .score {
+            text-align: right;
+            position: relative;
+            display: inline-block;
+        }
+
+        .row:nth-child(1) {
+            background: gold;
+        }
+
+        .row:nth-child(2) {
+            background: #c0c0c0;
+        }
+
+        .row:nth-child(3) {
+            background: #cd7f32;
+        }
+
+        .pointsDiv {
+            text-align: center;
+        }
+    </style>
+    <script>
+        let time;
+        let numRide = 1;
+        let total = 0;
+        let points = 0;
+        let user;
+        function addPoints() {
+            if (user == null) {
+                user = prompt("Enter you Username")
+                document.getElementById("playerName").innerHTML = user
+            }
+            
+            time = prompt("Enter amount of time spent traveling (In minutes)")
+            if (time != null || typeof time != "String") {
+                document.getElementById("ride" + numRide).innerHTML = time + " Minutes";
+                points = time * 5
+                document.getElementById("point" + numRide).innerHTML = points + " Points";
+                tableBorders();
+                numRide++;
+                totalPoints();
+            }
+        }
+
+        function totalPoints() {
+            total += points;
+            document.getElementById("totalPoints").innerHTML = "Total Points: " + total;
+            document.getElementById("playerScore").innerHTML = total;
+        }
+
+        function tableBorders() {
+            document.getElementById("ride" + numRide).style.borderColor = "black";
+            document.getElementById("ride" + numRide).style.borderStyle = "solid";
+            document.getElementById("ride" + numRide).style.borderWidth = "2px";
+            document.getElementById("point" + numRide).style.borderColor = "black";
+            document.getElementById("point" + numRide).style.borderStyle = "solid";
+            document.getElementById("point" + numRide).style.borderWidth = "2px";
+
+        }
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let elements = []
+            let container = document.querySelector('#container')
+            // Add each row to the array
+            container.querySelectorAll('.row').forEach(el => elements.push(el))
+            // Clear the container
+            container.innerHTML = ''
+            // Sort the array from highest to lowest
+            elements.sort((a, b) => b.querySelector('.score').textContent - a.querySelector('.score').textContent)
+            // Put the elements back into the container
+            elements.forEach(e => container.appendChild(e))
+        });
     </script>
 </head>
 
@@ -20,33 +145,91 @@
             <div class="menu">
                 <li><a href="./home.html">Home</a></li>
                 <li><a href="./leaderboard.html">Leaderboards</a></li>
-                <li><a href="./points.html">Enter Points!</a></li>
                 <li><a href="./about.html">About</a></li>
             </div>
         </ul>
     </nav>
+    <br><BR><BR><BR>
+    <div id="container">
+        <div class="row">
+            <div class="name">Joe</div>
+            <div class="score"></div>
+        </div>
 
-<div id="container">
-    <div class="row">
-        <div class="name">Player1</div><div class="score">430</div>
+        <div class="row">
+            <div class="name">Bob</div>
+            <div class="score"></div>
+        </div>
+
+        <div class="row">
+            <div class="name">bestPlayer_1</div>
+            <div class="score"></div>
+        </div>
+
+        <div class="row">
+            <div class="name">dogsAreCool123</div>
+            <div class="score"></div>
+        </div>
+
+        <div class="row">
+            <div class="name" id = "playerName"></div>
+            <div class="score" id = "playerScore"></div>
+        </div>
     </div>
-    
-    <div class="row">
-        <div class="name">Player2</div><div class="score">580</div>
+    <br><br><br><br><br>
+
+
+    <br><br><br>
+    <div class="pointsDiv">
+        <button class="points" onClick="addPoints()" class="points">Add Points!</button>
     </div>
-    
-    <div class="row">
-        <div class="name">Player3</div><div class="score">310</div>
-    </div>
-    
-    <div class="row">
-        <div class="name">Player4</div><div class="score">640</div>
-    </div>
-    
-    <div class="row">
-        <div class="name">Player5</div><div class="score">495</div>
-    </div>
-</div>
+    <br><br><br>
+    <table class="pointTable" style="margin-left:auto; margin-right:auto; width:300px">
+        <tr>
+            <th class="pointa">Minutes</td>
+            <th class="pointa">Points</td>
+        </tr>
+        <tr>
+            <td id="ride1"></td>
+            <td id="point1"></td>
+        </tr>
+        <tr>
+            <td id="ride2"></td>
+            <td id="point2"></td>
+        </tr>
+        <tr>
+            <td id="ride3"></td>
+            <td id="point3"></td>
+        </tr>
+        <tr>
+            <td id="ride4"></td>
+            <td id="point4"></td>
+        </tr>
+        <tr>
+            <td id="ride5"></td>
+            <td id="point5"></td>
+        </tr>
+        <tr>
+            <td id="ride6"></td>
+            <td id="point6"></td>
+        </tr>
+        <tr>
+            <td id="ride7"></td>
+            <td id="point7"></td>
+        </tr>
+        <tr>
+            <td id="ride7"></td>
+            <td id="point7"></td>
+        </tr>
+        <tr>
+            <td id="ride8"></td>
+            <td id="point8"></td>
+        </tr>
+    </table>
+
+
+    <p id="totalPoints"></p>
 
 </body>
+
 </html>
