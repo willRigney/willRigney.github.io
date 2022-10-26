@@ -110,6 +110,12 @@
             total += points;
             document.getElementById("totalPoints").innerHTML = "Total Points: " + total;
             document.getElementById("playerScore").innerHTML = total;
+
+            for(i = 1; i <= 4; i++){
+                let randScore = Math.abs(Math.random() * ((points + 100 ) - (points - 100)) + (points - 100));
+                document.getElementById("score" + i).innerHtml += randScore; 
+            }
+            
         }
 
         function tableBorders() {
@@ -119,7 +125,7 @@
             document.getElementById("point" + numRide).style.borderColor = "black";
             document.getElementById("point" + numRide).style.borderStyle = "solid";
             document.getElementById("point" + numRide).style.borderWidth = "2px";
-
+            
         }
 
 
@@ -153,22 +159,22 @@
     <div id="container">
         <div class="row">
             <div class="name">Joe</div>
-            <div class="score"></div>
+            <div class="score" id = "score1"></div>
         </div>
 
         <div class="row">
             <div class="name">Bob</div>
-            <div class="score"></div>
+            <div class="score" id = "score2"></div>
         </div>
 
         <div class="row">
             <div class="name">bestPlayer_1</div>
-            <div class="score"></div>
+            <div class="score" id = "score3"></div>
         </div>
 
         <div class="row">
             <div class="name">dogsAreCool123</div>
-            <div class="score"></div>
+            <div class="score" id = "score4"></div>
         </div>
 
         <div class="row">
