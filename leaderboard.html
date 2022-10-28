@@ -89,6 +89,10 @@
         let total = 0;
         let points = 0;
         let user;
+        let totalUser1 = 0;
+        let totalUser2 = 0;
+        let totalUser3 = 0;
+        let totalUser4 = 0;
         function addPoints() {
             if (user == null) {
                 user = prompt("Enter you Username")
@@ -110,12 +114,20 @@
             total += points;
             document.getElementById("totalPoints").innerHTML = "Total Points: " + total;
             document.getElementById("playerScore").innerHTML = total;
-
-            for(i = 1; i <= 4; i++){
-                let randScore = Math.abs(Math.random() * ((points + 100 ) - (points - 100)) + (points - 100));
-                document.getElementById("score" + i).innerHtml += randScore; 
-            }
-            
+       
+            let randNum1 = Math.round(Math.abs(Math.random() * ((points + 50 ) - (points - 50)) + (points - 50)));
+            let randNum2 = Math.round(Math.abs(Math.random() * ((points + 50 ) - (points - 50)) + (points - 50)));
+            let randNum3 = Math.round(Math.abs(Math.random() * ((points + 50 ) - (points - 50)) + (points - 50)));
+            let randNum4 = Math.round(Math.abs(Math.random() * ((points + 50 ) - (points - 50)) + (points - 50)));
+            totalUser1 += randNum1;
+            totalUser2 += randNum2;
+            totalUser3 += randNum3;
+            totalUser4 += randNum4;
+            document.getElementById("score1").innerHTML = totalUser1;
+            document.getElementById("score2").innerHTML = totalUser2;
+            document.getElementById("score3").innerHTML = totalUser3;
+            document.getElementById("score4").innerHTML = totalUser4;
+            reloadTable()
         }
 
         function tableBorders() {
@@ -128,19 +140,22 @@
             
         }
 
-
-        document.addEventListener('DOMContentLoaded', () => {
-            let elements = []
-            let container = document.querySelector('#container')
-            // Add each row to the array
-            container.querySelectorAll('.row').forEach(el => elements.push(el))
-            // Clear the container
-            container.innerHTML = ''
-            // Sort the array from highest to lowest
-            elements.sort((a, b) => b.querySelector('.score').textContent - a.querySelector('.score').textContent)
-            // Put the elements back into the container
-            elements.forEach(e => container.appendChild(e))
-        });
+        function reloadTable(){
+            console.log("cow")
+            
+                let elements = []
+                let container = document.querySelector('#container')
+                // Add each row to the array
+                container.querySelectorAll('.row').forEach(el => elements.push(el))
+                // Clear the container
+                container.innerHTML = ''
+                // Sort the array from highest to lowest
+                elements.sort((a, b) => b.querySelector('.score').textContent - a.querySelector('.score').textContent)
+                // Put the elements back into the container
+                elements.forEach(e => container.appendChild(e))
+           
+        }
+    
     </script>
 </head>
 
